@@ -24,6 +24,7 @@ const MainScreen = ({ navigation }) => {
     // console.log(reg?.test(val))
     if (val) {
       if (reg?.test(val)) {
+        
         const filterWithIdAndUserIdData = data?.filter((item) => {
           // console.log(item?.id)
 
@@ -35,14 +36,27 @@ const MainScreen = ({ navigation }) => {
 
         setResult(filterWithIdAndUserIdData)
       } else {
-        const filterData = data?.filter((item) => {
-          // console.log(item?.id)
+        console.log(val.toLowerCase())
+        if(val.toLowerCase() == "true" || val.toLowerCase() == "false"){
+          console.log("cond passed")
+          var searchValToBool = (val.toLowerCase() == "true") ? true : false
+          console.log(searchValToBool)
 
-          return (item?.title?.includes(val.toLowerCase()))
+          const filterWithIdAndUserIdData = data?.filter((item) => {
+            // console.log(item?.id)
+            return item?.completed === searchValToBool  
+          })
+          setResult(filterWithIdAndUserIdData)
 
+  
 
-        })
-        setResult(filterData)
+        } else {
+          const filterData = data?.filter((item) => {
+            // console.log(item?.id)
+            return (item?.title?.includes(val.toLowerCase()))
+          })
+          setResult(filterData)
+        }
       }
 
     } else {
