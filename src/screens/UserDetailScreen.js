@@ -18,33 +18,42 @@ const UserDetailScreen = ({ route }) => {
         })
     }, [])
     return (
-        <View style={{marginVertical: 10, borderRadius: 30,padding:15,  }}>
-            <Text style={{ backgroundColor: '#E0E0E0' ,}}>Profile</Text>
-            <View style={{padding:10}}>
-                <Text style={{fontWeight:'bold'}} >User Id</Text>
-                <Text style={{padding:10}}>{result.id}</Text>
+        <View style={{ padding: 10 }}>
+            <View style={{ borderWidth: 1, marginVertical: 10, borderRadius: 10 }}>
+                <Text style={{ backgroundColor: '#E0E0E0', borderTopLeftRadius: 9, padding: 10, borderTopRightRadius: 9 }}>Profile</Text>
+                <View style={{ padding: 10 }}>
+                    <Text style={{ fontWeight: 'bold' }} >User Id</Text>
+                    <Text style={{ padding: 10 }}>{result.id}</Text>
+                </View>
+
+                <View style={{ padding: 10 }}>
+                    <Text style={{ fontWeight: 'bold' }}>Name</Text>
+                    <Text style={{ padding: 10 }}>{result.name}</Text>
+                </View>
+
+                <View style={{ padding: 10 }}>
+                    <Text style={{ fontWeight: 'bold' }}>Email</Text>
+                    <Text style={{ padding: 10 }}>{result.email}</Text>
+                </View>
+
+                <View style={{ padding: 10 }}>
+                    <Text style={{ fontWeight: 'bold' }}>Address</Text>
+                    <View style={{flexDirection:'row'}}>
+                        <Text style={{ padding: 10 }} >City :</Text>
+                        <Text style={{ padding: 10 }}>{result?.address?.city}</Text>
+                    </View>
+                    <View style={{flexDirection:'row'}}>
+                        <Text style={{ padding: 10 }} >Street :</Text>
+                        <Text style={{ padding: 10 }}>{result?.address?.street}</Text>
+                    </View>
+                </View>
+
             </View>
-
-            <View style={{padding:10}}>
-                <Text style={{fontWeight:'bold'}}>Name</Text>
-                <Text style={{padding:10}}>{result.name}</Text>
-            </View>
-
-            <View style={{padding:10}}>
-                <Text style={{fontWeight:'bold'}}>Email</Text>
-                <Text style={{padding:10}}>{result.email}</Text>
-            </View>
-
-            <View>
-                <Text>User Id</Text>
-                <Text>{result?.address?.street}</Text>
-            </View> 
-           
-          
-
-
-           
         </View>
+
+
+
+
     )
 }
 
